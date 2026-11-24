@@ -1,0 +1,119 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DuoSH 隐私政策 · Privacy Policy</title><style>
+:root{--bg:#F2F6F9;--fg:#0C1A23;--mut:#4A5A66;--acc:#00698F;--line:#D5DEE5}
+@media (prefers-color-scheme:dark){:root{--bg:#0F151B;--fg:#ECF2F6;--mut:#9AA8B3;--acc:#3DCBFF;--line:#24303A}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 -apple-system,"PingFang SC","SF Pro Text","Helvetica Neue",sans-serif;-webkit-text-size-adjust:100%}
+main{max-width:720px;margin:0 auto;padding:40px 22px 64px}
+h1{font:600 28px/1.3 "SF Pro Rounded",-apple-system,"PingFang SC",sans-serif;margin:.2em 0 .6em}
+h2{font-size:19px;margin:2em 0 .5em}a{color:var(--acc)}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:1em 0}th,td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left;vertical-align:top}
+hr{border:0;border-top:1px solid var(--line);margin:3em 0}
+nav{font-size:14px;color:var(--mut);margin-bottom:28px}nav a{margin-right:16px}
+footer{margin-top:48px;font-size:13px;color:var(--mut)}
+</style></head><body><main>
+<nav><a href="./">DuoSH</a><a href="privacy.html">隐私政策 Privacy</a><a href="support.html">支持 Support</a></nav>
+<h1>DuoSH 隐私政策</h1>
+<p>生效日期：2026 年 11 月 24 日
+开发者：葛逸尘（个人开发者）
+联系方式：balue@qq.com
+App 备案号：沪ICP备2026063169号-1A</p>
+<p>DuoSH 是一个 iPhone / iPad 客户端，用来在手机上使用你<strong>自己 Mac 上</strong>运行的 DeepSeek Harness 与 DS Bot。DuoSH 是独立开发的第三方应用，与 DeepSeek（深度求索）及 DeepSeek Harness 的开发者没有隶属或授权关系。</p>
+<p><strong>一句话：DuoSH 没有账号，不收集你的个人数据，没有广告和统计；你的对话和文件只存在你的 Mac 和你的设备上。</strong></p>
+<h2>1. 我们不收集什么</h2>
+<ul>
+<li>不要求注册或登录，不收集姓名、手机号、邮箱。</li>
+<li>不收集、不保存你的对话内容、文件、照片或 Agent 输出。</li>
+<li>不使用任何第三方统计、广告、崩溃收集或数据经纪 SDK，不做跨 App 跟踪，不读取广告标识符。</li>
+<li>不出售、不出租、不共享任何用户数据。</li>
+</ul>
+<h2>2. App 怎么工作，数据经过哪里</h2>
+<p><strong>你的 Mac 是服务端。</strong> DuoSH 只和你配对过的 Mac 通信。会话、消息、文件、审批都由你 Mac 上的 DeepSeek Harness 和 DuoSH 网关插件处理。Agent 调用哪家 AI 模型服务，由你在 Mac 上自己配置；DuoSH 不会把你的数据发给任何 AI 服务商。</p>
+<p><strong>连接方式：</strong>
+- 手机和 Mac 在同一个 Wi-Fi（或你自己的 Tailscale 网络）里时，直接连接。
+- 你在外面时，连接经过我们在中国上海运营的<strong>中转服务器</strong>。中转是「盲转发」：加密连接在你的 Mac 上才解开，中转服务器看不到、也不保存通信内容。为了转发和防滥用，服务器会记录必要的连接信息：来访 IP 地址、连接时间、请求路径，以及中转账号名（中转只对受邀用户开放）。这些记录不含会话内容和屏幕画面，只用于运行和排障，保留不超过 30 天（访问日志约 11 天后删除，服务日志最长 30 天）。
+- 所有连接都使用 TLS 加密。App 只信任配对时从你 Mac 二维码里拿到的证书。</p>
+<p><strong>远程控制 Mac 屏幕：</strong> 你在手机上查看和操作 Mac 屏幕时，Mac 的屏幕画面和你的点按、手势走的是同一个网关和同一套配对认证，同样在你的 Mac 上才解开；在外时中转服务器只做盲转发，看不到、也不保存画面。App 只在内存里显示画面，不保存到手机，也不上传到任何地方。</p>
+<p><strong>推送通知：</strong>
+- 为了在 Agent 需要你审批或任务完成时提醒你，App 会向 Apple 申请一个推送令牌（device token），然后<strong>只发给你自己的 Mac</strong>。
+- 你的 Mac 需要发通知时，会把令牌和通知内容（标题和一小段正文，例如「Agent 想运行一条命令」）经我们在上海的推送服务转给 Apple 推送服务（APNs）。推送服务不保存、不记录令牌原文和通知内容，只为限流和排障记录令牌的不可逆摘要（SHA-256 指纹）和发送结果。
+- 实时活动（灵动岛）的更新也走同一条路。
+- 你可以随时在 iOS「设置 › 通知 › DuoSH」里关闭通知。关闭后 App 的其他功能照常可用。</p>
+<p><strong>断线诊断：</strong> 连接断开时，App 在本机记下不含内容的诊断信息（例如断开原因、使用的线路、持续时长），下次连上时<strong>发给你自己的 Mac</strong>，帮你排查网络问题。这些信息不会发给我们。</p>
+<h2>3. 存在你设备上的数据</h2>
+<table>
+<thead>
+<tr>
+<th>数据</th>
+<th>位置</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配对密钥和证书</td>
+<td>iOS 钥匙串；有 Secure Enclave 时私钥放在里面，不能导出</td>
+<td>证明这台手机是你配对过的设备</td>
+</tr>
+<tr>
+<td>会话列表、消息缓存、图片和文件预览</td>
+<td>App 沙盒，受 iOS 数据保护加密</td>
+<td>让打开更快、离线也能看最近内容</td>
+</tr>
+<tr>
+<td>小组件和实时活动快照（会话标题、状态、待处理数量）</td>
+<td>App 与其小组件共享的 App Group 容器</td>
+<td>在主屏、锁屏和灵动岛显示</td>
+</tr>
+<tr>
+<td>从其他 App 分享来的内容</td>
+<td>App Group 里的临时收件箱，发送后清理</td>
+<td>把你分享的照片和文件交给 Mac</td>
+</tr>
+<tr>
+<td>设置偏好</td>
+<td>App 沙盒</td>
+<td>记住你的选择</td>
+</tr>
+</tbody>
+</table>
+<p>你可以在 App「设置」里清理缓存，在「电脑与连接」里删除某台 Mac 的配对；删除 App 会移除以上全部本机数据。删除 App <strong>不会</strong>删除你 Mac 上的 DeepSeek Harness 数据。</p>
+<h2>4. 权限</h2>
+<ul>
+<li><strong>相机</strong>：扫描 Mac 上的配对二维码；你主动拍照作为附件时使用。不在后台使用。</li>
+<li><strong>照片（仅添加）</strong>：你点「保存」时，把对话里的图片或视频存到相册。App 不读取你的相册；选图使用系统照片选择器，只拿到你选中的那几张。</li>
+<li><strong>本地网络</strong>：在同一个 Wi-Fi 下直连你的 Mac。</li>
+<li><strong>通知</strong>：见上文。</li>
+</ul>
+<h2>5. 第三方</h2>
+<ul>
+<li>Apple：App 分发、TestFlight 和推送通知服务（APNs）由 Apple 按其隐私政策处理。</li>
+<li>阿里云：中转和推送服务器托管在阿里云（中国上海），只用来运行上文所说的转发服务。</li>
+<li>你的 Mac 和你在 Mac 上配置的 AI 服务商：由你自己控制，各自适用其隐私政策，不受 DuoSH 控制。</li>
+</ul>
+<h2>6. 儿童</h2>
+<p>DuoSH 是面向开发者的工具，不面向 14 周岁以下的未成年人，也不会有意收集儿童信息。</p>
+<h2>7. 你的权利</h2>
+<p>我们没有账号体系，也不保存可识别你的数据，所以通常没有可供查询或删除的个人数据。如果你对中转或推送日志有疑问，或想要求删除，请联系我们，我们会在 15 个工作日内答复。</p>
+<h2>8. 变更</h2>
+<p>本政策更新时，会修改本页顶部的生效日期；重大变更会在 App 更新说明里提示。</p>
+<h2>9. 联系我们</h2>
+<p>balue@qq.com</p>
+<hr />
+<h1>DuoSH Privacy Policy (English)</h1>
+<p>Effective: 24 November 2026 · Developer: Ge Yichen (葛逸尘, individual) · Contact: balue@qq.com</p>
+<p>DuoSH is an iPhone/iPad client for DeepSeek Harness and DS Bot running on <strong>your own Mac</strong>. It is an independent third-party app, not affiliated with or endorsed by DeepSeek or the developers of DeepSeek Harness.</p>
+<p><strong>In short: no account, no analytics or ads, and we do not collect personal data. Your conversations and files stay on your Mac and your device.</strong></p>
+<ol>
+<li><strong>What we don't collect.</strong> No sign-up, no name, email or phone number. We don't collect or store your conversations, files, photos or agent output. No third-party analytics, advertising, crash-reporting or data-broker SDKs; no tracking; no advertising identifier. We don't sell or share data.</li>
+<li><strong>How it works.</strong> The app only talks to Macs you have paired. On the same Wi-Fi (or your own Tailscale network) it connects directly. When you are away, traffic goes through our relay in Shanghai, China. The relay forwards traffic blindly: TLS is terminated on your Mac, so the relay can't read or store its content. To operate and prevent abuse, it processes network metadata (IP address, connection time, traffic volume), including IP address, connection time, request path and the relay account name (the relay is invite-only). These records contain no conversation content or screen images and are kept for no more than 30 days (access logs about 11 days, service logs at most 30 days). Which AI model provider your agent uses is configured by you on your Mac; DuoSH never sends your data to any AI provider.</li>
+<li><strong>Remote control of your Mac screen.</strong> When you view and control your Mac screen from the phone, the screen images and your taps and gestures use the same gateway and pairing authentication and are decrypted only on your Mac; when you are away the relay forwards them blindly and can neither see nor store them. The app shows the images in memory only and never saves or uploads them.</li>
+<li><strong>Push notifications.</strong> The app's APNs device token is sent <strong>only to your own Mac</strong>. When your Mac sends a notification, the token and a short title and body go through our push service in Shanghai to Apple Push Notification service. The service does not store or log tokens or notification content. For rate limiting and troubleshooting it logs only a one-way SHA-256 fingerprint of the token and the delivery result. Live Activity updates use the same path. You can turn notifications off at any time in iOS Settings.</li>
+<li><strong>Connection diagnostics</strong> (disconnect reason, route, duration; no content) are stored on the device and sent only to your own Mac.</li>
+<li><strong>On your device:</strong> pairing keys and certificates in the Keychain (Secure Enclave when available), conversation and preview caches in the app sandbox, widget and Live Activity snapshots and the Share inbox in the app's App Group container. Clear caches in Settings, or delete the app to remove everything.</li>
+<li><strong>Permissions:</strong> Camera (scan the pairing QR code, take photos you choose to send), Photos add-only (save images when you tap Save; picking uses the system picker), Local Network (direct connection to your Mac), Notifications.</li>
+<li><strong>Third parties:</strong> Apple (distribution, APNs); Alibaba Cloud (hosts the relay and push servers in Shanghai); your Mac and the AI providers you configure there, which are under your control.</li>
+<li><strong>Children:</strong> not directed to children under 14.</li>
+<li><strong>Contact / changes:</strong> balue@qq.com. We will update the effective date when this policy changes.</li>
+</ol>
+<footer>DuoSH · 葛逸尘（个人开发者）· <a href="mailto:balue@qq.com">balue@qq.com</a><br>App 备案号：<a href="https://beian.miit.gov.cn" rel="noopener">沪ICP备2026063169号-1A</a></footer>
+</main></body></html>
